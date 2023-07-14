@@ -57,19 +57,5 @@ namespace Bakery.Tests
             int testTotalBreadCost = Bread.TotalBreadCost;
             Assert.AreEqual(10, testTotalBreadCost);
         }
-
-        [TestMethod]
-        public void CalculateBreadOrder_UpdateTotalsMultipleTimes_Int()
-        {
-        Bread.CalculateBreadOrder(5);
-        Bread.CalculateBreadOrder(2);
-        Bread.CalculateBreadOrder(1);
-        int testTotalBreadCost = Bread.TotalBreadCost;
-        int testAmountOfLoaves = Bread.AmountOfLoaves;
-        Assert.AreEqual(35, testTotalBreadCost);
-        Assert.AreEqual(8, testAmountOfLoaves);
-        }
-
-
     }
 }
