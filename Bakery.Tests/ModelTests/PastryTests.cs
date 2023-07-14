@@ -58,6 +58,18 @@ namespace Bakery.Tests
             Assert.AreEqual(6, testTotalPastryCost);
         }
 
+        [TestMethod]
+        public void CalculatePastryOrder_UpdateTotalsMultipleTimes_Int()
+        {
+        Pastry.CalculatePastryOrder(5);
+        Pastry.CalculatePastryOrder(2);
+        Pastry.CalculatePastryOrder(8);
+        int testTotalPastryCost = Pastry.TotalPastryCost;
+        int testAmountOfPastries = Pastry.AmountOfPastries;
+        Assert.AreEqual(24, testTotalPastryCost);
+        Assert.AreEqual(15, testAmountOfPastries);
+        }
+
 
     }
 
