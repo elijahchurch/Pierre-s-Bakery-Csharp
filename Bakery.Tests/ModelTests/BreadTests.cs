@@ -10,7 +10,7 @@ namespace Bakery.Tests
         public void Dispose()
         {
             Bread.TotalBreadCost = 0;
-            Bread.AmountofLoaves = 0;
+            Bread.AmountOfLoaves = 0;
         }
 
         [TestMethod]
@@ -28,18 +28,18 @@ namespace Bakery.Tests
         }
 
         [TestMethod]
-        public void AmountofLoavesField_CanAccessAmountofLoaves_Int()
+        public void AmountOfLoavesField_CanAccessAmountOfLoaves_Int()
         {
-        int testAmountofLoaves = Bread.AmountofLoaves;
-        Assert.AreEqual(0, testAmountofLoaves);
+        int testAmountOfLoaves = Bread.AmountOfLoaves;
+        Assert.AreEqual(0, testAmountOfLoaves);
         }
 
         [TestMethod]
         public void CalculateBreadOrder_UpdateAmountOfLoavesField_Int()
         {
             Bread.CalculateBreadOrder(2);
-            int testAmountofLoaves = Bread.AmountofLoaves;
-            Assert.AreEqual(2, testAmountofLoaves);
+            int testAmountOfLoaves = Bread.AmountOfLoaves;
+            Assert.AreEqual(2, testAmountOfLoaves);
         }
 
         [TestMethod]
@@ -58,6 +58,17 @@ namespace Bakery.Tests
             Assert.AreEqual(10, testTotalBreadCost);
         }
 
+        [TestMethod]
+        public void CalculateBreadOrder_UpdateTotalsMultipleTimes_Int()
+        {
+        Bread.CalculateBreadOrder(5);
+        Bread.CalculateBreadOrder(2);
+        Bread.CalculateBreadOrder(1);
+        int testTotalBreadCost = Bread.TotalBreadCost;
+        int testAmountOfLoaves = Bread.AmountOfLoaves;
+        Assert.AreEqual(35, testTotalBreadCost);
+        Assert.AreEqual(8, testAmountOfLoaves);
+        }
 
 
     }

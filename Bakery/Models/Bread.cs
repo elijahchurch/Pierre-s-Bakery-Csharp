@@ -4,11 +4,11 @@ namespace Items.Models
     {
         static public int BreadCost { get;} = 5;
         static public int TotalBreadCost {get; set;}
-        static public int AmountofLoaves {get; set;}
+        static public int AmountOfLoaves {get; set;}
 
         static public void CalculateBreadOrder(int userAmount)
         {
-            AmountofLoaves += userAmount;
+            AmountOfLoaves += userAmount;
             for (int i = 0; i <= userAmount; i++)
             {
                 if(i%3 != 0)
@@ -16,7 +16,6 @@ namespace Items.Models
                     TotalBreadCost += BreadCost;
                 }
             }
-
         }
 
     }
