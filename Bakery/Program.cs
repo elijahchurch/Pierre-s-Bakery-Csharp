@@ -1,4 +1,6 @@
-namespace ProjectName
+using Items.Models;
+
+namespace Bakery
 {
     class Program
     {
