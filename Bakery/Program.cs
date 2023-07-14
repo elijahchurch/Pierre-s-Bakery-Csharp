@@ -9,6 +9,16 @@ namespace Bakery
         {
             Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~");
             Console.WriteLine("Welcome to Pierre's Bakery!");
+            DisplayCosts();
+            Console.WriteLine("If you are ready to make an order, enter any key.");
+            Console.ReadLine();
+            Console.WriteLine("Great!");
+            CalculateOrder();
+        }
+
+        static void DisplayCosts()
+        {
+            Console.WriteLine("");
             Console.WriteLine("Here are our prices:");
             Console.WriteLine("");
             Console.WriteLine("------------------------------------------------");
@@ -19,10 +29,30 @@ namespace Bakery
             Console.WriteLine("DAILY DEAL: Buy 3 pastries get 1 free!");
             Console.WriteLine("------------------------------------------------");
             Console.WriteLine("");
-            Console.WriteLine("If you are ready to make an order, enter any key.");
-            Console.ReadLine();
-            Console.WriteLine("Great!");
+        }
 
+        static void CalculateOrder()
+        {
+            Console.WriteLine("How many loaves of bread do you want to order?");
+            string breadStringAmount = Console.ReadLine();
+            Console.WriteLine("How many pastries do you want to order?");
+            string pastryStringAmount = Console.ReadLine();
+            try 
+            {
+                int breadAmount = int.Parse(breadStringAmount);
+                int pastryAmount = int.Parse(pastryStringAmount);
+            }
+            catch
+            {
+                Console.WriteLine("");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("ERROR: Please only enter in numbers!");
+                Console.WriteLine("Special symbols and alphabetic characters will not be accepted.");
+                Console.ResetColor();
+                Console.WriteLine("Enter any key to try again.");
+                Console.ReadLine();
+                CalculateOrder();
+            }
         }
     }
 }
