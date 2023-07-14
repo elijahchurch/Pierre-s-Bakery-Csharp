@@ -34,6 +34,14 @@ namespace Bakery.Tests
         Assert.AreEqual(0, testAmountOfPastries);
         }
 
+        [TestMethod]
+        public void CalculatePastryOrder_UpdateAmountOfPastriesField_Int()
+        {
+            Pastry.CalculatePastryOrder(4);
+            int testAmountOfPastries = Pastry.AmountOfPastries;
+            Assert.AreEqual(4, testAmountOfPastries);
+        }
+
 
     }
 
