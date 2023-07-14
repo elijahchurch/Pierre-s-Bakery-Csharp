@@ -9,7 +9,7 @@ namespace Bakery.Tests
     {
         public void Dispose()
         {
-            Bread.TotalBreadOrder = 0;
+            Bread.TotalBreadCost = 0;
             Bread.AmountofLoaves = 0;
         }
 
@@ -21,10 +21,10 @@ namespace Bakery.Tests
         }
 
         [TestMethod]
-        public void TotalBreadOrderField_CanAccessTotalBreadOrder_Int()
+        public void TotalBreadCostField_CanAccessTotalBreadCost_Int()
         {
-        int testTotalBreadOrder = Bread.TotalBreadOrder;
-        Assert.AreEqual(0, testTotalBreadOrder);
+        int testTotalBreadCost = Bread.TotalBreadCost;
+        Assert.AreEqual(0, testTotalBreadCost);
         }
 
         [TestMethod]
@@ -41,6 +41,16 @@ namespace Bakery.Tests
             int testAmountofLoaves = Bread.AmountofLoaves;
             Assert.AreEqual(2, testAmountofLoaves);
         }
+
+        [TestMethod]
+        public void CalculateBreadOrder_UpdateTotalBreadCost_Int()
+        {
+            Bread.CalculateBreadOrder(2);
+            int testTotalBreadCost = Bread.TotalBreadCost;
+            Assert.AreEqual(10, testTotalBreadCost);
+        }
+
+        
 
     }
 }
