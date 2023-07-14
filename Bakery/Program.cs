@@ -44,12 +44,20 @@ namespace Bakery
             {
                 int breadAmount = int.Parse(breadStringAmount);
                 int pastryAmount = int.Parse(pastryStringAmount);
-                Bread.CalculateBreadOrder(breadAmount);
-                Pastry.CalculatePastryOrder(pastryAmount);
-                Console.WriteLine("");
-                Console.WriteLine("Here is your current order:");
-                DisplayOrder();
-                CheckIfOrderIsComplete();
+                if (breadAmount > 0 && pastryAmount > 0)
+                {
+                    Bread.CalculateBreadOrder(breadAmount);
+                    Pastry.CalculatePastryOrder(pastryAmount);
+                    Console.WriteLine("");
+                    Console.WriteLine("Here is your current order:");
+                    DisplayOrder();
+                    CheckIfOrderIsComplete();
+                }
+                else
+                {
+                    NegativeNumberError();
+                    CalculateInitialOrder();
+                }
             }
             catch
             {
@@ -76,6 +84,17 @@ namespace Bakery
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("ERROR: Please only enter in numbers!");
             Console.WriteLine("Special symbols and alphabetic characters will not be accepted.");
+            Console.ResetColor();
+            Console.WriteLine("Enter any key to try again.");
+            Console.ReadLine();
+        }
+
+        static void NegativeNumberError()
+        {
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("ERROR: You inputed a negative number!");
+            Console.WriteLine("Please only enter postive integers.");
             Console.ResetColor();
             Console.WriteLine("Enter any key to try again.");
             Console.ReadLine();
@@ -119,14 +138,22 @@ namespace Bakery
             {
                 int moreBread = int.Parse(moreStringBread) + Bread.AmountOfLoaves;
                 int morePastries = int.Parse(moreStringPastries) + Pastry.AmountOfPastries;
-                Bread.TotalBreadCost = 0;
-                Pastry.TotalPastryCost = 0;
-                Bread.CalculateBreadOrder(moreBread);
-                Pastry.CalculatePastryOrder(morePastries);
-                Console.WriteLine("");
-                Console.WriteLine("Here is your current order:");
-                DisplayOrder();
-                CheckIfOrderIsComplete();
+                if(moreBread > 0 && morePastries > 0)
+                {
+                    Bread.TotalBreadCost = 0;
+                    Pastry.TotalPastryCost = 0;
+                    Bread.CalculateBreadOrder(moreBread);
+                    Pastry.CalculatePastryOrder(morePastries);
+                    Console.WriteLine("");
+                    Console.WriteLine("Here is your current order:");
+                    DisplayOrder();
+                    CheckIfOrderIsComplete();
+                }
+                else
+                {
+                    NegativeNumberError();
+                    CalculateExtraOrder();
+                }
             }
             catch
             {
