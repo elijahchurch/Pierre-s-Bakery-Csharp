@@ -9,7 +9,14 @@ namespace Items.Models
         static public void CalculateBreadOrder(int userAmount)
         {
             AmountofLoaves += userAmount;
-            TotalBreadCost += userAmount*BreadCost;
+            for (int i = 0; i <= userAmount; i++)
+            {
+                if(i%3 != 0)
+                {
+                    TotalBreadCost += BreadCost;
+                }
+            }
+
         }
 
     }

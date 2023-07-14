@@ -50,7 +50,15 @@ namespace Bakery.Tests
             Assert.AreEqual(10, testTotalBreadCost);
         }
 
-        
+        [TestMethod]
+        public void CalculateBreadOrder_UpdateTotalBreadCostWithDeal_Int()
+        {
+            Bread.CalculateBreadOrder(3);
+            int testTotalBreadCost = Bread.TotalBreadCost;
+            Assert.AreEqual(10, testTotalBreadCost);
+        }
+
+
 
     }
 }
