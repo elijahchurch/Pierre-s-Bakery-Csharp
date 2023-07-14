@@ -10,6 +10,7 @@ namespace Bakery.Tests
         public void Dispose()
         {
             Pastry.TotalPastryCost = 0;
+            Pastry.AmountOfPastries = 0;
         }
 
         [TestMethod]
@@ -24,6 +25,13 @@ namespace Bakery.Tests
         {
         int testTotalPastryCost = Pastry.TotalPastryCost;
         Assert.AreEqual(0, testTotalPastryCost);
+        }
+
+        [TestMethod]
+        public void AmountOfPastriesField_CanAccessAmountOfPastries_Int()
+        {
+        int testAmountOfPastries = Pastry.AmountOfPastries;
+        Assert.AreEqual(0, testAmountOfPastries);
         }
 
 
