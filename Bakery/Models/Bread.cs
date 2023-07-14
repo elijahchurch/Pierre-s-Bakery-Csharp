@@ -4,10 +4,11 @@ namespace Items.Models
     {
         static public int BreadCost { get;} = 5;
         static public int TotalBreadOrder {get; set;}
+        static public int AmountofLoaves {get; set;}
 
-        public Bread (int userAmount)
+        static public void CalculateBreadOrder(int userAmount)
         {
-            
+            AmountofLoaves += userAmount;
         }
 
     }

@@ -34,5 +34,13 @@ namespace Bakery.Tests
         Assert.AreEqual(0, testAmountofLoaves);
         }
 
+        [TestMethod]
+        public void CalculateBreadOrder_UpdateAmountOfLoavesField_Int()
+        {
+            Bread.CalculateBreadOrder(2);
+            int testAmountofLoaves = Bread.AmountofLoaves;
+            Assert.AreEqual(2, testAmountofLoaves);
+        }
+
     }
 }
