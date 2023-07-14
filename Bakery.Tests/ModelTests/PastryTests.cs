@@ -42,6 +42,14 @@ namespace Bakery.Tests
             Assert.AreEqual(4, testAmountOfPastries);
         }
 
+        [TestMethod]
+        public void CalculatePastryOrder_UpdateTotalPastryCost_Int()
+        {
+            Pastry.CalculatePastryOrder(3);
+            int testTotalPastryCost = Pastry.TotalPastryCost;
+            Assert.AreEqual(6, testTotalPastryCost);
+        }
+
 
     }
 

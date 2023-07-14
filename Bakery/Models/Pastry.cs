@@ -9,6 +9,7 @@ namespace Items.Models
         static public void CalculatePastryOrder(int userAmount)
         {
             AmountOfPastries += userAmount;
+            TotalPastryCost += userAmount*PastryCost;
         }
     }
 
