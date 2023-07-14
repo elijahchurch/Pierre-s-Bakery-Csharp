@@ -8,7 +8,7 @@ namespace Items.Models
 
         static public void CalculateBreadOrder(int userAmount)
         {
-            AmountOfLoaves += userAmount;
+            AmountOfLoaves = userAmount;
             for (int i = 0; i <= userAmount; i++)
             {
                 if(i%3 != 0)

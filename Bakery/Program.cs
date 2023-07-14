@@ -46,6 +46,7 @@ namespace Bakery
                 int pastryAmount = int.Parse(pastryStringAmount);
                 Bread.CalculateBreadOrder(breadAmount);
                 Pastry.CalculatePastryOrder(pastryAmount);
+                Console.WriteLine("");
                 Console.WriteLine("Here is your current order:");
                 DisplayOrder();
                 CheckIfOrderIsComplete();
@@ -88,11 +89,12 @@ namespace Bakery
             string userResponse = Console.ReadLine().ToLower();
             if (userResponse == "yes" || userResponse == "y")
                 {
-
+                    CalculateExtraOrder();
                 }
             else if ( userResponse == "no" || userResponse == "n")
                 {
-                    Console.WriteLine("Here is your final order:")
+                    Console.WriteLine("");
+                    Console.WriteLine("Here is your final order:");
                 }
             else 
                 {
@@ -105,6 +107,32 @@ namespace Bakery
                     Console.WriteLine("");
                     CheckIfOrderIsComplete();
                 }
+        }
+
+        static void CalculateExtraOrder()
+        {
+            Console.WriteLine("How many more loaves of bread do you want to order?");
+            string moreStringBread = Console.ReadLine();
+            Console.WriteLine("How many more pastries do you want to order?");
+            string moreStringPastries = Console.ReadLine();
+            try 
+            {
+                int moreBread = int.Parse(moreStringBread) + Bread.AmountOfLoaves;
+                int morePastries = int.Parse(moreStringPastries) + Pastry.AmountOfPastries;
+                Bread.TotalBreadCost = 0;
+                Pastry.TotalPastryCost = 0;
+                Bread.CalculateBreadOrder(moreBread);
+                Pastry.CalculatePastryOrder(morePastries);
+                Console.WriteLine("");
+                Console.WriteLine("Here is your current order:");
+                DisplayOrder();
+                CheckIfOrderIsComplete();
+            }
+            catch
+            {
+                ErrorMessage();
+                CalculateExtraOrder();
+            }
         }
     }
 }
