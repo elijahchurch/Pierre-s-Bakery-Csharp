@@ -2,6 +2,13 @@ namespace Items.Models
 {
     public class Bread
     {
-        // Business Logic goes here.
+        static public int BreadCost { get;} = 5;
+        static public int TotalBreadOrder {get; set;}
+
+        public Bread (int userAmount)
+        {
+            
+        }
+
     }
 }
